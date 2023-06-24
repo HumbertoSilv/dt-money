@@ -8,8 +8,8 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   html {
-	  font-size: 62.5%;
-    background: ${(props) => props.theme["gray-500"]};
+	  /* font-size: 62.5%;
+    background: ${(props) => props.theme["gray-500"]}; */
   }
  
   body {
@@ -24,7 +24,7 @@ export const GlobalStyle = createGlobalStyle`
 
   :focus {
     outline: 0;
-    box-shadow: 0 0 0 2px ${(props) => props.theme["gray-500"]};
+    box-shadow: 0 0 0 2px ${(props) => props.theme["green-500"]};
   }
 
 `
