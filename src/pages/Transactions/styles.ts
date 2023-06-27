@@ -7,7 +7,7 @@ interface PriceHighLightProps {
 export const TransactionsContainer = styled.main`
   width: 100%;
   max-width: 1120px;
-  margin: 4rem auto;
+  margin: 4rem auto 0;
   padding: 0 1.5rem;
 
 `
@@ -19,7 +19,6 @@ export const TransactionsTable = styled.table`
   margin-top: 1.5rem;
 
   td {
-    width: 50%;
     padding: 1.25rem 2rem;
     background: ${props => props.theme["gray-700"]};
 
