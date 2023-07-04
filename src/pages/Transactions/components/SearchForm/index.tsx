@@ -21,7 +21,6 @@ export const SearchForm = () => {
 
   const handleSearchTransactions = async ({ query }: SearchFormInputs) => {
     fetchTransactions(query)
-    console.log(query)
   }
 
   return (

@@ -4,7 +4,10 @@ import { ArrowCircleDown, ArrowCircleUp, X } from "phosphor-react"
 import { Controller, useForm } from "react-hook-form"
 import * as zod from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
+import { useContext } from "react"
+import { TransactionsContext } from "../../context/TransactionsContext"
 
+// TODO: Fechar modal quando criar uma nova transação
 const newTransactionFormSchema = zod.object({
   description: zod.string(),
   price: zod.number(),
@@ -15,13 +18,13 @@ const newTransactionFormSchema = zod.object({
 type NewTransactionFormInputs = zod.infer<typeof newTransactionFormSchema>
 
 export const NewTransactionModal = () => {
+  const { createTransaction } = useContext(TransactionsContext)
   const { control, register, reset, handleSubmit, formState: { isSubmitting } } = useForm<NewTransactionFormInputs>({
     resolver: zodResolver(newTransactionFormSchema)
   })
 
-  const handleCreateNewTransaction = async (data: NewTransactionFormInputs) => {
-    await new Promise(resolve => setTimeout(resolve, 2000))
-    console.log(data);
+  const handleCreateNewTransaction = (data: NewTransactionFormInputs) => {
+    createTransaction(data)
     reset()
   }
 
@@ -43,7 +46,7 @@ export const NewTransactionModal = () => {
             required
             {...register("description")} />
           <input
-            type="text"
+            type="number"
             placeholder="Preço"
             required
             {...register("price", { valueAsNumber: true })} />

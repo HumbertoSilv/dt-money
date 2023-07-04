@@ -5,6 +5,7 @@ import { useSummary } from "../../hooks/useSummary"
 
 export const Summary = () => {
   const summary = useSummary()
+  // TODO: Se o total for negativo, o background deve ficar vermelho
 
   return (
     <SummaryContainer>
